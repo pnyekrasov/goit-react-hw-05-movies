@@ -1,21 +1,17 @@
 import axios from 'axios';
 
-// axios.defaults.baseURL = https://api.themoviedb.org/3/
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 const options = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyY2MxY2RkM2RjN2ExYjM5Y2YxYjI4MzY0OGVmY2E3NyIsInN1YiI6IjY0ZWNiYjM5MWZlYWMxMDBmZTVlM2JhOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1gN5-kJ3dQV8KS9fTdZgyIcLiLn0R2J34HxmI1QCx4M',
+    Authorization: 'Bearer 2cc1cdd3dc7a1b39cf1b283648efca77',
   },
 };
 
 export const fetchPopularMovies = async () => {
-  const response = await axios(
-    'https://api.themoviedb.org/3//trending/get-trending',
-    options
-  );
+  const response = await axios('/trending/get-trending', options);
   return response.data;
 };
 
