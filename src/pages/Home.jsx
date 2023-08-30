@@ -20,7 +20,16 @@ const Home = () => {
     }
     getFilms();
   }, []);
-  return <div>Home</div>;
+  return (
+    <div>Home</div>
+    // <ul>
+    //   {filmItems.map(film => (
+    //     <li key={film.id}>
+    //      <Link></Link>
+    //     </li>
+    //   ))}
+    // </ul>
+  );
 };
 
 export default Home;
