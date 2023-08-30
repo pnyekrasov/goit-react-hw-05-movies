@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const options = {
   method: 'GET',
-  url: 'https://api.themoviedb.org/3/trending/get-trending',
+  url: 'https://api.themoviedb.org/3/',
   params: { language: 'en-US' },
   headers: {
     accept: 'application/json',
@@ -16,9 +16,9 @@ const options = {
 };
 
 export const fetchPopularMovies = async () => {
-  const response = await axios.request(options);
-  console.log(response.data);
-  return response.data;
+  const response = await axios.request('trending/movie/day', options);
+  console.log(response.data.results);
+  return response.data.results;
 };
 
 // https://trending/all/{time_window}
