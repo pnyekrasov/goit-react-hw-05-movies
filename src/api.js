@@ -12,7 +12,7 @@ const options = {
 
 export const fetchPopularMovies = async () => {
   const response = await axios('/trending/get-trending', options);
-  return response.data;
+  return response.data.results;
 };
 
 // fetch('https://api.themoviedb.org/3//trending/get-trending', options)
