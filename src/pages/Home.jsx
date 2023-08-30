@@ -1,5 +1,6 @@
-import { fetchPopularMovies } from 'api';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { fetchPopularMovies } from 'api';
 
 const Home = () => {
   const [filmItems, setFilmItems] = useState([]);
@@ -20,15 +21,15 @@ const Home = () => {
     }
     getFilms();
   }, []);
-  return console.log(filmItems);
-  //     <div>Home</div>
-  // <ul>
-  //   {filmItems.map(film => (
-  //     <li key={film.id}>
-  //      <Link></Link>
-  //     </li>
-  //   ))}
-  // </ul>
+  return (
+    <ul>
+      {filmItems.map(({ id, title }) => (
+        <li key={id}>
+          <Link to="/movies/:movieId">{title}</Link>
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export default Home;
