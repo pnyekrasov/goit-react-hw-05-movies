@@ -12,6 +12,7 @@ const options = {
 
 export const fetchPopularMovies = async () => {
   const response = await axios('/trending/get-trending', options);
+  console.log(response.data.results);
   return response.data.results;
 };
 

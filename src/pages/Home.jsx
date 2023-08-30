@@ -10,7 +10,6 @@ const Home = () => {
         // setLoading(true);
         const filmItems = await fetchPopularMovies();
         setFilmItems(filmItems);
-        console.log(filmItems);
       } catch (error) {
         console.log(error);
       }
