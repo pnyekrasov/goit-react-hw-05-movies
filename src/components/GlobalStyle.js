@@ -23,10 +23,10 @@ p {
   margin: 0;
 }
 
-ul { 
+/* ul { 
     margin: 0;
     padding: 0;
-}
+} */
 
 img {
   display: block;
