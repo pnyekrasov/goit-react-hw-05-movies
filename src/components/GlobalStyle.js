@@ -19,14 +19,10 @@ code {
 
 h2,
 h3,
+h4
 p {
   margin: 0;
 }
-
-/* ul { 
-    margin: 0;
-    padding: 0;
-} */
 
 img {
   display: block;
@@ -51,7 +47,4 @@ button:hover {
   color: #fff;
   background-color: #2d66c3;
 }
-
-
-
 `;
