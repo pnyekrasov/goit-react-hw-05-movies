@@ -7,7 +7,6 @@ export const SharedLayout = () => {
   return (
     <Container>
       <MainNav />
-      <hr />
       <Outlet />
       <Toaster />
     </Container>

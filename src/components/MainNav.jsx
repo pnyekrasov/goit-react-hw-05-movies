@@ -20,6 +20,7 @@ export const MainNav = () => {
             <NavLink to="movies/:movieId/reviews">Reviews</NavLink>
           </li> */}
       </ul>
+      <hr />
     </nav>
   );
 };

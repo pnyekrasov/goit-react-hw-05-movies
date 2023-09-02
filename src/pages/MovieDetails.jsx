@@ -10,12 +10,11 @@ const MovieDetails = () => {
 
   useEffect(() => {
     if (!movieId) return;
-    async function getDetailsFilms() {
+    async function getDetailsFilm() {
       try {
         // setLoading(true);
-        const detailsFilms = await fetchMovieDetails(movieId);
-        console.log(detailsFilms);
-        setMovieData(detailsFilms);
+        const detailsFilm = await fetchMovieDetails(movieId);
+        setMovieData(detailsFilm);
       } catch (error) {
         console.error(error);
       }
@@ -24,7 +23,7 @@ const MovieDetails = () => {
       //   setLoading(false);
       // }
     }
-    getDetailsFilms();
+    getDetailsFilm();
   }, [movieId]);
 
   const backLink = location.state?.from ?? '/';
@@ -50,7 +49,8 @@ const MovieDetails = () => {
           />
           <h2>{movieData.title}</h2>
           <p>
-            User Score: <span>{Math.round(movieData.vote_average * 10)}%</span>
+            User Score:&nbsp;
+            <span>{Math.round(movieData.vote_average * 10)}%</span>
           </p>
           <h3>Overview</h3>
           <p>{movieData.overview}</p>
@@ -66,10 +66,10 @@ const MovieDetails = () => {
           <p>Additional information</p>
           <ul>
             <li>
-              <Link to="/movies/:movieId/cast">Cast</Link>
+              <Link to={'cast'}>Cast</Link>
             </li>
             <li>
-              <Link to="/movies/:movieId/reviews">Reviews</Link>
+              <Link to={'reviews'}>Reviews</Link>
             </li>
           </ul>
           <hr />

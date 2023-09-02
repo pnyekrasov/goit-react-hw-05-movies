@@ -13,7 +13,6 @@ const options = {
 
 export const fetchPopularMovies = async () => {
   const response = await axios.get('trending/movie/day', options);
-  // console.log(response.data.results);
   return response.data.results;
 };
 
@@ -25,18 +24,15 @@ export const fetchSearchMovie = async () => {
 
 export const fetchMovieDetails = async movieId => {
   const response = await axios.get(`movie/${movieId}`, options);
-  console.log(response.data);
   return response.data;
 };
 
-export const fetchCast = async () => {
-  const response = await axios.get('movie/movie_id/credits', options);
-  console.log(response.data);
-  return response.data;
+export const fetchCast = async movieId => {
+  const response = await axios.get(`movie/${movieId}/credits`, options);
+  return response.data.cast;
 };
 
-export const fetchReviews = async () => {
-  const response = await axios.get('movie/movie_id/reviews', options);
-  console.log(response.data);
-  return response.data;
+export const fetchReviews = async movieId => {
+  const response = await axios.get(`movie/${movieId}/reviews`, options);
+  return response.data.results;
 };

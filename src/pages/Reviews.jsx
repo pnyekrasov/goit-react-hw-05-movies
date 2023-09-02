@@ -1,5 +1,43 @@
+import { fetchReviews } from 'api';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 const Reviews = () => {
-  return <div>Reviews</div>;
+  const { movieId } = useParams();
+  const [movieReviews, setMovieReviews] = useState(null);
+
+  useEffect(() => {
+    if (!movieId) return;
+    async function getReviewsFilm() {
+      try {
+        // setLoading(true);
+        const ReviewsFilm = await fetchReviews(movieId);
+        setMovieReviews(ReviewsFilm);
+      } catch (error) {
+        console.error(error);
+      }
+
+      // finally {
+      //   setLoading(false);
+      // }
+    }
+    getReviewsFilm();
+  }, [movieId]);
+
+  const defaultText = "We don't have any reviews foe this movie.";
+
+  return movieReviews ? (
+    <ul>
+      {movieReviews.map(({ id, author, content }) => (
+        <li key={id}>
+          <h4>Author:&nbsp;{author}</h4>
+          <p>{content}</p>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    defaultText
+  );
 };
 
 export default Reviews;
