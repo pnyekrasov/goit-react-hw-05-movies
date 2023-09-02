@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieDetails } from 'api';
 import { useEffect, useState } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
@@ -50,7 +50,7 @@ const MovieDetails = () => {
           />
           <h2>{movieData.title}</h2>
           <p>
-            User Score: <span>{movieData.vote_average * 10}%</span>
+            User Score: <span>{Math.round(movieData.vote_average * 10)}%</span>
           </p>
           <h3>Overview</h3>
           <p>{movieData.overview}</p>
@@ -64,16 +64,16 @@ const MovieDetails = () => {
           </ul>
           <hr />
           <p>Additional information</p>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/movies/:movieId/cast">Cast</Link>
-              </li>
-              <li>
-                <Link to="movies/:movieId/reviews">Reviews</Link>
-              </li>{' '}
-            </ul>
-          </nav>
+          <ul>
+            <li>
+              <Link to="/movies/:movieId/cast">Cast</Link>
+            </li>
+            <li>
+              <Link to="/movies/:movieId/reviews">Reviews</Link>
+            </li>
+          </ul>
+          <hr />
+          <Outlet />
         </div>
       )}
     </div>
