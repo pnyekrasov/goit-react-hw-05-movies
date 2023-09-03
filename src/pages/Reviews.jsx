@@ -24,9 +24,9 @@ const Reviews = () => {
     getReviewsFilm();
   }, [movieId]);
 
-  const defaultText = "We don't have any reviews foe this movie.";
+  // const defaultText = "We don't have any reviews foe this movie.";
 
-  return movieReviews ? (
+  return movieReviews.length > 0 ? (
     <ul>
       {movieReviews.map(({ id, author, content }) => (
         <li key={id}>
@@ -36,8 +36,21 @@ const Reviews = () => {
       ))}
     </ul>
   ) : (
-    defaultText
+    <p>"We don't have any reviews for this movie."</p>
   );
+
+  // <>
+  //   (movieReviews.length>0) ?
+  //   <ul>
+  //     {movieReviews.map(({ id, author, content }) => (
+  //       <li key={id}>
+  //         <h4>Author:&nbsp;{author}</h4>
+  //         <p>{content}</p>
+  //       </li>
+  //     ))}
+  //   </ul>
+  //   :<p>"We don't have any reviews foe this movie."</p>
+  // </>;
 };
 
 export default Reviews;
