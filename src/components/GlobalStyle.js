@@ -32,19 +32,18 @@ img {
 
 button {
   display: block;
-  padding: 4px 8px;
+  padding: 2px 8px;
   font-family: inherit;
   font-weight: 500;
   font-size: 18px;
   cursor: pointer;
-  border: 1px solid #eef0f2;
-  border-radius: 4px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  background-color: #fdfdfe;
+  border: 3px solid #B8B997;
+   background-color: #E5E5C8;
 }
 
 button:hover {
   color: #fff;
+  border: 3px solid #2d66c3;
   background-color: #2d66c3;
 }
 `;

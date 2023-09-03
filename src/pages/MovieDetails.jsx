@@ -26,7 +26,7 @@ const MovieDetails = () => {
     getDetailsFilm();
   }, [movieId]);
 
-  const backLink = location.state?.from ?? '/';
+  const backLink = location?.state?.from ?? '/';
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
