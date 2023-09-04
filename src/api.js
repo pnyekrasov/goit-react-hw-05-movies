@@ -4,9 +4,6 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 const options = {
   params: {
-    include_adult: 'false',
-    page: '1',
-    // query: `${query}`,
     language: 'en-US',
   },
   headers: {
@@ -23,14 +20,8 @@ export const fetchPopularMovies = async () => {
 
 export const fetchSearchMovie = async query => {
   const response = await axios.get(
-    'search/movie',
+    `search/movie?query=${query}&include_adult='false'& page='1'`,
     options
-    // options,
-    // `${query}`
-    // {
-    //   ...options,
-    //   query: query,
-    // }
   );
   return response.data.results;
 };
