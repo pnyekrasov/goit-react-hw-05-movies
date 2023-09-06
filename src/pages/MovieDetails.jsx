@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieDetails } from 'api';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 
 const MovieDetails = () => {
@@ -73,7 +73,9 @@ const MovieDetails = () => {
             </li>
           </ul>
           <hr />
-          <Outlet />
+          <Suspense fallback={<div>LOADING</div>}>
+            <Outlet />
+          </Suspense>
         </div>
       )}
     </div>

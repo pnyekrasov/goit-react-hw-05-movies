@@ -3,9 +3,11 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Searchbar } from 'components/Searchbar/Searchbar';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
-  const [query, setQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') ?? '';
   const [filmItems, setFilmItems] = useState([]);
 
   useEffect(() => {
@@ -13,10 +15,8 @@ const Movies = () => {
     async function getFilms() {
       try {
         // setLoading(true);
-        const index = query.indexOf('/') + 1;
-        const currentQuery = query.slice(index);
 
-        const filmItems = await fetchSearchMovie(currentQuery);
+        const filmItems = await fetchSearchMovie(query);
         setFilmItems(filmItems);
       } catch (error) {
         console.error(error);
@@ -29,16 +29,18 @@ const Movies = () => {
     getFilms();
   }, [query]);
 
-  const hendleSubmit = newQuery => {
+  const handleSubmit = newQuery => {
     if (!newQuery.trim()) {
-      return toast.error('Enter the data in the field "Search movie", please');
+      toast.error('Enter the data in the field "Search movie", please');
+      setSearchParams({});
+      return;
     }
-    setQuery(`${Date.now()}/${newQuery}`);
+    setSearchParams({ query: newQuery });
   };
 
   return (
     <div>
-      <Searchbar onChange={hendleSubmit} />
+      <Searchbar onChange={handleSubmit} />
       <MoviesList movies={filmItems} />
     </div>
   );
