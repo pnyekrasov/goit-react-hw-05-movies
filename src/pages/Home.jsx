@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { fetchPopularMovies } from 'api';
 // import { Link } from 'react-router-dom';
 import { MoviesList } from 'components/MoviesList/MoviesList';
-// import { MoviesList } from 'components/MoviesList/MoviesList';
 
 const Home = () => {
   const [filmItems, setFilmItems] = useState([]);
