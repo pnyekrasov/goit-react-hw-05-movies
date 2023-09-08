@@ -1,70 +1,34 @@
 import styled from 'styled-components';
 
-export const StyledHeader = styled.div`
-  top: 0;
-  left: 0;
-  position: sticky;
-  z-index: 1100;
+export const SearchForm = styled.form`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  color: #fff;
-  background-color: #3f51b5;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-`;
-
-export const StyledForm = styled.form`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 600px;
-  background-color: #fff;
-  border-radius: 3px;
-  overflow: hidden;
+  margin-top: 4px;
 `;
 
 export const SearchFormButton = styled.button`
-  display: inline-block;
-  width: 48px;
-  height: 48px;
-  background: #f8fafb;
-  border: 0;
   cursor: pointer;
-  outline: none;
-  color: #babfc4;
+  font-size: 14px;
+  background: #fef3f3;
+  border: 2px outset #ebe3e3;
 
   &:hover {
-    background: #babfc4;
-    color: #828588;
+    background: #ebe3e3;
   }
 
   &:active {
-    color: #fff;
-    background: lightgreen;
-  }
-
-  svg {
-    width: 70%;
-    height: 70%;
+    background: #cbafaf;
+    border: 2px inset #ebe3e3;
   }
 `;
 
 export const SearchFormInput = styled.input`
-  display: inline-block;
-  width: 100%;
-  font-size: 20px;
-  border: none;
-  outline: none;
+  width: 400px;
+  border: 1px solid #f0e9e9;
   padding-left: 4px;
   padding-right: 4px;
 
   &::placeholder {
-    font-size: 18px;
+    font-size: 14px;
+    color: #d2c4c4;
   }
 `;

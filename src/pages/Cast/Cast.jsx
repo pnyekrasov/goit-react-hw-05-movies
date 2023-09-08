@@ -11,16 +11,11 @@ const Cast = () => {
     if (!movieId) return;
     async function getCastFilm() {
       try {
-        // setLoading(true);
         const castFilm = await fetchCast(movieId);
         setMovieCast(castFilm);
       } catch (error) {
         console.error(error);
       }
-
-      // finally {
-      //   setLoading(false);
-      // }
     }
     getCastFilm();
   }, [movieId]);

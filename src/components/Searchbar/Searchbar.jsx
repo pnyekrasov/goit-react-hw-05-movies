@@ -1,26 +1,23 @@
-// import { ImSearch } from 'react-icons/im';
-
-// import {
-//   StyledHeader,
-//   StyledForm,
-//   SearchFormButton,
-//   SearchFormInput,
-// } from './Searchbar.styled';
+import {
+  SearchForm,
+  SearchFormButton,
+  SearchFormInput,
+} from './Searchbar.styled';
 
 export const Searchbar = ({ onChange }) => {
   return (
-    <div>
-      <form
+    <>
+      <SearchForm
         onSubmit={evt => {
           evt.preventDefault();
           onChange(evt.target.elements.query.value);
           evt.target.reset();
         }}
       >
-        <input type="text" name="query" placeholder="Search movie" />
+        <SearchFormInput type="text" name="query" placeholder="Search movie" />
 
-        <button type="submit">Search</button>
-      </form>
-    </div>
+        <SearchFormButton type="submit">Search</SearchFormButton>
+      </SearchForm>
+    </>
   );
 };

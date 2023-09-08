@@ -10,21 +10,21 @@ const Home = () => {
   useEffect(() => {
     async function getFilms() {
       try {
-        // setLoading(true);
         const filmItems = await fetchPopularMovies();
         setFilmItems(filmItems);
       } catch (error) {
         console.error(error);
       }
-
-      // finally {
-      //   setLoading(false);
-      // }
     }
     getFilms();
   }, []);
 
-  return <MoviesList movies={filmItems} />;
+  return (
+    <div>
+      <h1>Trending today</h1>
+      <MoviesList movies={filmItems} />;
+    </div>
+  );
 };
 
 export default Home;

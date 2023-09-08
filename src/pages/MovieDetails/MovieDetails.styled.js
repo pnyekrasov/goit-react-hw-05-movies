@@ -4,23 +4,20 @@ import styled from 'styled-components';
 export const StyledLink = styled(Link)`
   display: inline-block;
   margin-bottom: 10px;
-  padding: 4px 8px;
-  font-size: 12px;
+  padding: 0 6px;
+  font-size: 14px;
   color: #000;
-
   text-decoration: none;
-  border-radius: 3px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   background: #fef3f3;
+  border: 2px outset #ebe3e3;
 
   &:hover {
     background: #ebe3e3;
   }
 
   &:active {
-    position: relative;
-    top: 4px;
     background: #cbafaf;
+    border: 2px inset #ebe3e3;
   }
 `;
 

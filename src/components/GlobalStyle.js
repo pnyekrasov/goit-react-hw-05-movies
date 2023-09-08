@@ -17,6 +17,7 @@ code {
     monospace;
 }
 
+h1,
 h2,
 h3,
 h4,
@@ -24,26 +25,10 @@ p {
   margin: 0;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  object-fit: cover;
-}
+  img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+  }
 
-button {
-  display: block;
-  padding: 2px 8px;
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 18px;
-  cursor: pointer;
-  border: 3px solid #B8B997;
-   background-color: #E5E5C8;
-}
-
-button:hover {
-  color: #fff;
-  border: 3px solid #2d66c3;
-  background-color: #2d66c3;
-}
 `;

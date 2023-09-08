@@ -1,8 +1,9 @@
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { IconContext } from 'react-icons';
-import { Suspense, useEffect, useState } from 'react';
 import { BiArrowBack } from 'react-icons/bi';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieDetails } from 'api';
+import { Loader } from 'components/Loader/Loader';
 import { Innerp, List, StyledLink, Text, Wrap } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -23,13 +24,13 @@ const MovieDetails = () => {
     getDetailsFilm();
   }, [movieId]);
 
-  const backLink = location?.state?.from ?? '/';
+  const backLink = useRef(location?.state?.from ?? '/');
   const defaultImg =
     'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
   return (
     <div>
-      <StyledLink to={backLink}>
+      <StyledLink to={backLink.current}>
         <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
           <BiArrowBack />
         </IconContext.Provider>
@@ -65,7 +66,7 @@ const MovieDetails = () => {
               </List>
             </Innerp>
           </Wrap>
-          <div>
+          <>
             <hr />
             <Text>Additional information</Text>
             <ul>
@@ -77,8 +78,8 @@ const MovieDetails = () => {
               </li>
             </ul>
             <hr />
-          </div>
-          <Suspense fallback={<div>LOADING</div>}>
+          </>
+          <Suspense fallback={<Loader />}>
             <Outlet />
           </Suspense>
         </div>
