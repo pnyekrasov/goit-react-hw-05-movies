@@ -20,7 +20,6 @@ export const Searchbar = ({ onChange }) => {
     <>
       <SearchForm onSubmit={handleSubmit}>
         <SearchFormInput type="text" name="query" placeholder="Search movie" />
-
         <SearchFormButton type="submit">Search</SearchFormButton>
       </SearchForm>
     </>
