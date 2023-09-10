@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { toast } from 'react-hot-toast';
+// import { toast } from 'react-hot-toast';
 import { useSearchParams } from 'react-router-dom';
 import { fetchSearchMovie } from 'api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
@@ -7,7 +7,7 @@ import { Searchbar } from 'components/Searchbar/Searchbar';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query') ?? '';
+  const query = searchParams.get('query');
   const [filmItems, setFilmItems] = useState([]);
 
   useEffect(() => {
@@ -23,13 +23,8 @@ const Movies = () => {
     getFilms();
   }, [query]);
 
-  const handleSubmit = newQuery => {
-    if (!newQuery.trim()) {
-      toast.error('Enter the data in the field "Search movie", please');
-      setSearchParams({});
-      return;
-    }
-    setSearchParams({ query: newQuery });
+  const handleSubmit = query => {
+    setSearchParams({ query });
   };
 
   return (
