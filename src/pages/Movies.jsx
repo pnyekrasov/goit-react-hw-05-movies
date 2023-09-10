@@ -5,7 +5,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 import { Searchbar } from 'components/Searchbar/Searchbar';
 
 const Movies = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const query = searchParams.get('query');
   const [filmItems, setFilmItems] = useState([]);
 
@@ -22,13 +22,9 @@ const Movies = () => {
     getFilms();
   }, [query]);
 
-  const handleSubmit = query => {
-    setSearchParams({ query });
-  };
-
   return (
     <div>
-      <Searchbar onChange={handleSubmit} />
+      <Searchbar />
       <MoviesList movies={filmItems} />
     </div>
   );

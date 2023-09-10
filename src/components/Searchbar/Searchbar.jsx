@@ -4,16 +4,18 @@ import {
   SearchFormButton,
   SearchFormInput,
 } from './Searchbar.styled';
+import { useSearchParams } from 'react-router-dom';
 
-export const Searchbar = ({ onChange }) => {
+export const Searchbar = () => {
+  const [_, setSearchParams] = useSearchParams();
   const handleSubmit = evt => {
     evt.preventDefault();
-    const newQuery = evt.target.elements.query.value;
-    if (!newQuery.trim()) {
+    const query = evt.target.elements.query.value;
+    if (!query.trim()) {
       toast.error('Enter the data in the field "Search movie", please');
       return;
     }
-    onChange(newQuery);
+    setSearchParams({ query });
     evt.target.reset();
   };
   return (
