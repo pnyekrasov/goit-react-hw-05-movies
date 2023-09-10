@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { toast } from 'react-hot-toast';
 import { useSearchParams } from 'react-router-dom';
 import { fetchSearchMovie } from 'api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
