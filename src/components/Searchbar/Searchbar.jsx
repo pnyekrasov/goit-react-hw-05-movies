@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import {
   SearchForm,
@@ -20,12 +19,7 @@ export const Searchbar = ({ onChange }) => {
   return (
     <>
       <SearchForm onSubmit={handleSubmit}>
-        <SearchFormInput
-          type="text"
-          // value="query"
-          name="query"
-          placeholder="Search movie"
-        />
+        <SearchFormInput type="text" name="query" placeholder="Search movie" />
 
         <SearchFormButton type="submit">Search</SearchFormButton>
       </SearchForm>
